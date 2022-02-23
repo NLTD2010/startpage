@@ -28,7 +28,7 @@
   --accent: #57a0d9; /* Hover color */
 
   --cards: #e4e6e63d; /* Cards color */
-
+  --h2 : #202222ef;
   /* Image background  */
   --imgbg: url(./assets/img/lightmode.png); /* Image URL */
   --imgcol: linear-gradient(
@@ -46,7 +46,7 @@
   /* Fonts Color */
   --fg: #d8dee9; /* Foreground color */
   --sfg: #2c292e; /* Secondary Foreground color */
-
+  --h2 : #d8dee9;
   /* Image background  */
   --imgcol: linear-gradient(
     rgba(0, 0, 0, 0.0),
@@ -368,4 +368,8 @@ body {
     padding-left: 100px;
     padding-right: 100px;
   }
+}
+h3{
+  font-weight: bold;
+  color: var(--h2);
 }
