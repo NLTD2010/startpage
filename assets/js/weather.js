@@ -78,9 +78,4 @@ function displayWeather() {
   )}°<span class="darkfg">${tempUnit}</span>`;
   descElement.innerHTML = weather.description;
 }
-function unitChange() {
-  celsius = !celsius;
-  displayTemperature(temperature);
-  $(".tempUnit").toggleClass("d-none"); 
-}
 
