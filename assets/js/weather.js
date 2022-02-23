@@ -57,6 +57,18 @@ function getWeather(latitude, longitude) {
     .then(function () {
       displayWeather();
     });
+    $.ajax({url: "https://maps.googleapis.com/maps/api/geocode/json",
+    data: {
+     latlng: `${latitude},${longitude}`,
+     result_type: "locality|postal_code",
+     key: "AIzaSyDzSfY7QJ7KD6q2mgkQ0gJxxWFN8U5Fh2E"
+    }})
+.then(function reverseGeocodeResponse(data){
+console.log(data.results[0]);
+$("#location").text(data.results[0].formatted_address);
+})
+
+
 }
 
 function displayWeather() {
@@ -72,37 +84,3 @@ function unitChange() {
   $(".tempUnit").toggleClass("d-none"); 
 }
 
-$(".changeUnit").click(unitChange);
-
-if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(function positionResponseFunction(position){ 
-    // Get weather data from openweathermap
-    $.ajax({url: "https://api.openweathermap.org/data/2.5/weather",
-           data: {
-             lat: position.coords.latitude,
-             lon: position.coords.longitude,
-             APPID: "b64aa5a1d39a445bd242996a501979ed"
-           }})
-    .then(function weatherResponse(data) {
-      console.log(data);
-      temperature = data.main.temp;
-      displayWeather(data);
-      displayTemperature(data.main.temp)
-    });
-    
-    //reverse geocode from google
-    $.ajax({url: "https://maps.googleapis.com/maps/api/geocode/json",
-           data: {
-            latlng: `${position.coords.latitude},${position.coords.longitude}`,
-            result_type: "locality|postal_code",
-            key: "AIzaSyDzSfY7QJ7KD6q2mgkQ0gJxxWFN8U5Fh2E"
-           }})
-    .then(function reverseGeocodeResponse(data){
-      console.log(data.results[0]);
-      $("#location").text(data.results[0].formatted_address);
-    })
-  });
-
-} else {
-  console.log("geolocation not available.");
-}
