@@ -11,7 +11,7 @@ const CONFIG = {
   // └─┘┴ ┴└─┘┴└─┘└─┘
 
   // General
-  name: 'Thái Dương',
+  name: 'DannyVn',
   imageBackground: true,
   openInNewTab: true,
   twelveHourFormat: false,
@@ -216,7 +216,7 @@ const CONFIG = {
         },
         {
           name: 'Repos',
-          link: 'https://github.com/migueravila',
+          link: 'https://github.com/NLTD2010',
         },
       ],
     },
